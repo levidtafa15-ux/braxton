@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-braxton-cream: #F5F5F0;
+  --color-braxton-beige: #E6E2D3;
+  --color-braxton-gold: #C5A059;
+  --color-braxton-black: #1A1A1A;
+
+  --animate-slow-zoom: slow-zoom 20s infinite alternate;
+  --animate-fade-in-up: fade-in-up 1s ease-out forwards;
+}
+
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-braxton-cream text-braxton-black font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.luxury-shadow {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.luxury-shadow-hover {
+  @apply transition-all duration-500;
+}
+
+.luxury-shadow-hover:hover {
+  @apply -translate-y-2;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+}
+
+.glass-nav {
+  @apply bg-braxton-cream/80 backdrop-blur-md border-b border-braxton-beige/50;
+}
+
+.gold-underline {
+  @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-braxton-gold after:transition-all after:duration-300 hover:after:w-full;
+}
